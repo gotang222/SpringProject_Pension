@@ -19,7 +19,7 @@
 		<br>
 		<h2>로그인 : ${session_data.uName}</h2>
 		
-		<a href="/resources/logoutTest.jsp">로그아웃하기</a>
+		<a href="/resources/logoutTest.jsp">로그아웃하기2</a>
 	</div>
 	<!-- div#wrap -->
 	<jsp:include page="/resources/include/footer.jsp" flush="true" />
