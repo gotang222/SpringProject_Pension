@@ -1,6 +1,67 @@
 @charset "UTF-8";
 @import url(/resources/style/style_Reset.css);
 
+/* //////////////////////////// 공통요소시작 //////////////////////////// */
+h1 {
+	font-size: 30px;
+	text-align: center;
+	margin: 20px 0;
+}
+input[type=text],
+input[type=password],
+input[type=number],
+select,
+textarea {
+	font-size: 18px;
+	padding: 6px 12px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=number]:focus,
+select:focus,
+textarea:focus {
+	border: 1px solid #009cff;
+	outline: none;
+}
+input[type=checkbox],
+input[type=radio] {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	transform: translateY(4px)
+}
+button {
+	color: #fff;
+	font-size: 16px;
+	padding: 8px 12px;
+	border: none;
+	background-color: #009cff;
+}
+table {
+	border-collapse: collapse; 
+}
+table>tbody th,
+table>tbody td {
+	padding: 10px;
+	border: 1px solid #aaa;
+}
+.accent {
+	color: #f80;
+	font-size: 20px;
+	font-weight: bold;
+}
+/* //////////////////////////// 공통요소 끝 //////////////////////////// */
+
+/* //////////////////////////// div#wrap 시작 //////////////////////////// */
+div#wrap {
+	width: 1200px;
+	border: 1px solid #ddd;
+	padding: 10px;
+	margin: 0 auto;
+}
+/* //////////////////////////// div#wrap 끝 //////////////////////////// */
 
 
 

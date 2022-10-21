@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+/* //////////////////////////// 회원가입 페이지 (/member/join.jps) 시작 //////////////////////////// */
+div#wrap table#joinTbl {
+	width: 900px;
+	padding: 20px;
+	/* border: 1px solid #aaa; */
+	border-collapse: collapse;
+	margin: 30px auto;
+}
+#joinTbl caption {
+	text-align: right;
+	padding-bottom: 10px;
+}
+#joinTbl tbody td {
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+#joinTbl tbody td:first-child {
+	text-align: right;
+	background-color: #fafafa;
+}
+#joinTbl tbody .guideTxt {
+	color: #888;
+	font-size: 14px;
+}
+#joinTbl tbody p.guideTxt {
+	line-height: 2em;
+	vertical-align: bottom;
+}
+
+#joinTbl tfoot td {
+	text-align: center;
+	padding-top: 40px;
+}
+#joinTbl #joinSubmitBtn,
+#joinTbl #modifySubmitBtn {
+	width: 300px;
+	height: 55px;
+	font-size: 18px;
+}
+
+/* input 크기 지정 시작 */
+#joinTbl #uid {
+	width: 150px;
+}
+#joinTbl #upw {
+	width: 260px;
+}
+#joinTbl #upw2 {
+	width: 260px;
+}
+#joinTbl #uName {
+	width: 150px;
+}
+#joinTbl #uEmail1 {
+	width: 160px;
+}
+#joinTbl #uEmail2 {
+	width: 160px;
+}
+#joinTbl #uBirth {
+	width: 200px;
+}
+#joinTbl #uZipcode {
+	width: 200px;
+}
+#joinTbl #uAddr {
+	width: 500px;
+}
+/* input 크기 지정 끝 */
+
+/* //////////////////////////// 회원가입 페이지 (/member/join.jps) 끝 //////////////////////////// */
+
+
+
+
+
+/* ////////////////////////////  시작 //////////////////////////// */
+/* ////////////////////////////  끝 //////////////////////////// */
+/* ///////////////  시작 /////////////// */
+/* ///////////////  끝 /////////////// */
+/* 시작 */
+/* 끝 */

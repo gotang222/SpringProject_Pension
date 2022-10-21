@@ -7,18 +7,17 @@
 <title>회원가입 페이지</title>
 <link rel="shortcut icon" href="#">
 <link rel="stylesheet" href="/resources/style/style_Common.css">
-<link rel="stylesheet" href="/resources/style/member/join.css">
+<link rel="stylesheet" href="/resources/style/member/style_join.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/resources/script/script.js"></script>
+<script src="/resources/script/member/join.js"></script>
 </head>
 <body>
-	<jsp:include page="/resources/inc/header.jsp" flush="true" />
+	<jsp:include page="/resources/include/header.jsp" flush="true" />
 	<div id="wrap">
-		
 		<h1>회원가입 페이지</h1>
 		<hr>
 		
-		<form action="/member/joinProc.jsp" id="joinFrm">
+		<form id="joinFrm" method="post">
 			<table id="joinTbl">
 				<caption>* 표시는 필수 입력사항입니다.</caption>
 				<tbody>
@@ -105,15 +104,15 @@
 						<td>성별</td>
 						<td>
 							<label>
-								선택 안함 <input type="radio" name="gender" value="" checked>
+								선택 안함 <input type="radio" name="uGender" value="" checked>
 							</label>
 							&nbsp;&nbsp;
 							<label>
-								남 <input type="radio" name="gender" value="1">
+								남 <input type="radio" name="uGender" value="1">
 							</label>
 							&nbsp;&nbsp;
 							<label>
-								여 <input type="radio" name="gender" value="2">
+								여 <input type="radio" name="uGender" value="2">
 							</label>
 						</td>
 					</tr>
@@ -146,9 +145,8 @@
 			<!-- table#joinTbl -->
 		</form>
 		<!-- form#joinFrm -->
-		
 	</div>
 	<!-- div#wrap -->
-	<jsp:include page="/resources/inc/footer.jsp" flush="true" />
+	<jsp:include page="/resources/include/footer.jsp" flush="true" />
 </body>
 </html>

@@ -7,12 +7,12 @@
 <title>예약현황 페이지</title>
 <link rel="shortcut icon" href="#">
 <link rel="stylesheet" href="/resources/style/style_Common.css">
-<link rel="stylesheet" href="/resources/style/booking/calendar.css">
+<link rel="stylesheet" href="/resources/style/booking/style_calendar.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/resources/script/script.js"></script>
 </head>
 <body>
-	<jsp:include page="/resources/inc/header.jsp" flush="true" />
+	<jsp:include page="/resources/include/header.jsp" flush="true" />
 	<div id="wrap">
 		
 		<h1>예약현황 페이지</h1>
@@ -20,6 +20,6 @@
 		
 	</div>
 	<!-- div#wrap -->
-	<jsp:include page="/resources/inc/footer.jsp" flush="true" />
+	<jsp:include page="/resources/include/footer.jsp" flush="true" />
 </body>
 </html>

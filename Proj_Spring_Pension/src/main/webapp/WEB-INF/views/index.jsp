@@ -11,14 +11,17 @@
 <script src="/resources/script/script.js"></script>
 </head>
 <body>
-	<jsp:include page="/resources/inc/header.jsp" flush="true" />
+	<jsp:include page="/resources/include/header.jsp" flush="true" />
 	<div id="wrap">
 		
 		<h1>메인 페이지</h1>
 		<hr>
+		<br>
+		<h2>로그인 : ${session_data.uName}</h2>
 		
+		<a href="/resources/logoutTest.jsp">로그아웃하기</a>
 	</div>
 	<!-- div#wrap -->
-	<jsp:include page="/resources/inc/footer.jsp" flush="true" />
+	<jsp:include page="/resources/include/footer.jsp" flush="true" />
 </body>
 </html>

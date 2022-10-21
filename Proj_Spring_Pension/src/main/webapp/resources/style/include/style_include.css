@@ -1,0 +1,171 @@
+@charset "UTF-8";
+@import url(/resources/style/style_Reset.css);
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////// 공통 Header (/include/header.jsp) 시작 //////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* div#headerWap 시작 */
+div#headerWrap {
+	height: 300px;
+    /* border: 3px solid #08f; */
+    margin: 0 auto;
+    background-color: #b1d3f1;
+}
+/* div#headerWap 끝 */
+
+
+/* header#header 시작 */
+div#headerWrap>header#header {
+	width: 1200px;
+	height: 100%;
+	padding-top: 10px;
+	/* border: 1px solid #000; */
+    margin: 0 auto;
+    justify-content: space-between;
+}
+/* header#header 끝 */
+
+
+
+/* ////////////////// div#headerLogoArea 시작 ////////////////// */
+div#headerLogoArea {
+    height: 100px;
+    padding-top: 5px;
+    /* border: 1px solid #000; */
+    margin: 0 10px;
+    cursor: pointer;
+}
+/* ////////////////// div#headerLogoArea 끝 ////////////////// */
+
+
+
+/* ////////////////// nav#headerGnbArea 시작 ////////////////// */
+nav#headerGnbArea {
+	/* width: 650px; */
+	height: 100%;
+    text-align: center;
+    /* border: 1px solid #000; */
+    margin: auto 0;
+    margin-top: 20px;
+    flex: 1;
+}
+#headerGnbArea li {
+	margin-top: -1px;
+	margin-right: -1px;
+}
+#headerGnbArea>ul#mainMenu {
+	padding-left: 50px;
+	/* border: 1px solid #000; */
+}
+#headerGnbArea>#mainMenu a {
+    width: 150px;
+    font-size: 16.5px;
+    font-weight: bold;
+    text-align: center;
+    padding: 16px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+}
+
+#headerGnbArea>#mainMenu a:hover {
+    /* background-color: rgba(255, 255, 255, 0.9) */
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+#headerGnbArea>#mainMenu>li.mainLi {
+	cursor: pointer;
+    position: relative;
+}
+
+#headerGnbArea>#mainMenu>li>ul.subMenu {
+    position: absolute;
+    /* display: none; */
+}
+/* ////////////////// nav#headerGnbArea 끝 ////////////////// */
+
+
+
+/* ////////////////// div#headerMemberArea 시작 ////////////////// */
+div#headerMemberArea {
+	width: 250px;
+	margin-top: 20px;
+}
+#headerMemberArea ul#MemberMenu {
+	justify-content: space-between;
+}
+#headerMemberArea li {
+	width: 100%;
+	text-align: center;
+	margin-right: -1px;
+}
+#headerMemberArea li>a {
+	width: 100%;
+	height: 100%;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 12px 0;
+	border: 1px solid rgba(0, 0, 0, 0.6);
+	background-color: rgba(255, 255, 255, 0.5);
+	display: inline-block;
+	cursor: pointer;
+}
+#headerMemberArea li:hover a {
+	color: #fff;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+/* ////////////////// div#headerMemberArea 끝 ////////////////// */
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////// 공통 Header (/include/header.jsp) 끝 //////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////// 공통 Footer (/include/header.jsp) 시작 //////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+div#footerWrap {
+	border-top: 1px solid #ddd;
+}
+footer#footer{
+	width: 1200px;
+	height: 100%;
+	text-align: center;
+	padding: 30px 0;
+	margin: 0 auto;
+}
+#footer a {
+	color: #aaa;
+	font-size: 12px;
+	margin: 0 10px;
+	display: inline-block;
+}
+#footer a:hover{
+	color: #222;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////// 공통 Footer (/include/header.jsp) 끝 //////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+
+
+
+/* ////////////////////////////  시작 //////////////////////////// */
+/* ////////////////////////////  끝 //////////////////////////// */
+/* ///////////////  시작 /////////////// */
+/* ///////////////  끝 /////////////// */
+/* 시작 */
+/* 끝 */

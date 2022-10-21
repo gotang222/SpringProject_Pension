@@ -2,12 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
-	<insert id="insert" parameterType="hashMap" useGeneratedKeys="true" keyProperty="member_id">
+	<!-- 회원가입 시작 -->
+	<insert id="insert" parameterType="hashMap" useGeneratedKeys="true" keyProperty="num">
 		<![CDATA[
-			insert into memList (uId, uPw, uName, uEmail)
+			insert into member
+			(uid, upw, uName, uBirth, uPhone, uEmail, uGender, uZipcode, uAddr, joinTM)
 			values
-			(#{uId}, #{uPw}, #{uName}, #{uEmail})
+			(#{uid}, #{upw}, #{uName}, #{uBirth}, #{uPhone}, #{uEmail}, #{uGender}, #{uZipcode}, #{uAddr}, now())
 		]]>
 	</insert>
+	<!-- 회원가입 끝 -->
+	
+	<!-- 로그인 시작 -->
+	<select id="select" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select
+			uid, uName, uBirth, uPhone, uEmail, uGender, uZipcode, uAddr
+			from member where uid = #{uid} and upw = #{upw}
+		]]>
+	</select>
+	<!-- 로그인 끝 -->
 
 </mapper>
