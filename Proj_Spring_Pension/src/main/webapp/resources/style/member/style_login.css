@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+/* //////////////////////////// 로그인 페이지 (/member/login.jsp) 시작 //////////////////////////// */
+div#wrap {
+	width: 1000px;
+}
+#loginFrm.dFlex {
+	width: 700px;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+#inputArea {
+	width: 550px;
+}
+#inputArea input {
+	width: 500px;
+	font-size: 24px;
+	padding: 12px 20px;
+	outline: none;
+	margin: 10px;
+	display: inline-block;
+}
+#loginBtnArea {
+	padding: 10px;
+}
+#loginBtnArea button {
+	width: 170px;
+	height: 133px;
+	font-size: 24px;
+	font-weight: bold;
+}
+/* //////////////////////////// 로그인 페이지 (/member/login.jsp) 끝 //////////////////////////// */
+
+/* ////////////////////////////  시작 //////////////////////////// */
+/* ////////////////////////////  끝 //////////////////////////// */
+/* ///////////////  시작 /////////////// */
+/* ///////////////  끝 /////////////// */
+/* 시작 */
+/* 끝 */

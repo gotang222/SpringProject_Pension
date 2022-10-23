@@ -59,6 +59,7 @@ public class MemberController {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("session_data", loginMap);
+		session.setAttribute("session_uid", map.get("uid").toString());
 		mav.addObject("data", loginMap);
 		mav.setViewName("/index");
 		return mav;

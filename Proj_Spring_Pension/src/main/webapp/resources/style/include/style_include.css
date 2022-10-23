@@ -84,7 +84,7 @@ nav#headerGnbArea {
 
 #headerGnbArea>#mainMenu>li>ul.subMenu {
     position: absolute;
-    /* display: none; */
+    display: none;
 }
 /* ////////////////// nav#headerGnbArea 끝 ////////////////// */
 

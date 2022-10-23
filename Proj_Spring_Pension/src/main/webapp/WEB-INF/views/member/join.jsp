@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/resources/style/style_Common.css">
 <link rel="stylesheet" href="/resources/style/member/style_join.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/resources/script/member/join.js"></script>
+<script src="/resources/script/member/script_join.js"></script>
 </head>
 <body>
 	<jsp:include page="/resources/include/header.jsp" flush="true" />
