@@ -35,7 +35,6 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 
 		int num = this.memberService.insert(map);
-		System.out.println("회원번호 num : " + num);
 		
 		mav.setViewName("redirect:/");
 		

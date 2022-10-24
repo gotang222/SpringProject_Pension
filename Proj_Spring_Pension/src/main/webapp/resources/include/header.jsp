@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" autoFlush="true"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -37,10 +38,10 @@
 					</li>
 					
 					<li>
-                        <a href="/notice">커뮤니티</a>
+                        <a href="/board?category=notice">커뮤니티</a>
                         <ul class="subMenu">
-                            <li><a href="/notice">공지사항</a></li>
-                            <li>	<a href="#">이용후기</a></li>
+                            <li><a href="/board?category=notice">공지사항</a></li>
+                            <li><a href="/board?category=review">이용후기</a></li>
                         </ul>
                     </li>
 				</ul>
@@ -49,23 +50,23 @@
 			
 			<div id="headerMemberArea">
 				<ul id="MemberMenu" class="dFlex">
-					<%
-					String uid = (String) session.getAttribute("session_uid");
-					if (uid == null) { %>
+					<c:if test="${empty session_uid}">
 	            		<li>
 							<a href="/login">로그인</a>
 						</li>
 						<li>
 							<a href="/join">회원가입</a>
 						</li>
-	            	<% } else { %>
+					</c:if>
+	            	
+	            	<c:if test="${not empty session_uid}">
 	            		<li>
 		            		<a href="/resources/logoutTest.jsp">로그아웃</a>
 	            		</li>
 	            		<li>
 							<a href="#">마이페이지</a>
 	            		</li>
-	            	<% } %>
+	            	</c:if>
 				</ul>
 			</div>
 			<!-- div#headerMemArea -->

@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>공지사항 페이지</title>
+<title>글작성 페이지</title>
 <link rel="shortcut icon" href="#">
 <link rel="stylesheet" href="/resources/style/style_Common.css">
 <link rel="stylesheet" href="/resources/style/style_bbs/notice.css">
@@ -14,12 +14,21 @@
 <body>
 	<jsp:include page="/resources/include/header.jsp" flush="true" />
 	<div id="wrap">
-		
-		<h1>공지사항 페이지</h1>
-		<hr>
-		
+		<h1>글작성</h1>
+		<form method="post">
+			<div id="writeArea">
+				<select name="category">
+					<option value="notice">공지사항</option>
+					<option value="review">이용후기</option>
+				</select>
+				<input type="text" id="title" name="title" placeholder="제목을 입력하세요.">
+				<textarea id="content" name="content" placeholder="내용을 입력하세요."></textarea>
+			</div>
+			<button>작성</button>
+			<!-- div#writeArea -->
+		</form>
 	</div>
-	<jsp:include page="/resources/include/footer.jsp" flush="true" />
 	<!-- div#wrap -->
+	<jsp:include page="/resources/include/footer.jsp" flush="true" />
 </body>
 </html>
