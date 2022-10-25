@@ -40,8 +40,8 @@
 					<li>
                         <a href="/board?category=notice">커뮤니티</a>
                         <ul class="subMenu">
-                            <li><a href="/board?category=notice">공지사항</a></li>
-                            <li><a href="/board?category=review">이용후기</a></li>
+                            <li><a href="/board?category=notice&nowPage=1">공지사항</a></li>
+                            <li><a href="/board?category=review&nowPage=1">이용후기</a></li>
                         </ul>
                     </li>
 				</ul>

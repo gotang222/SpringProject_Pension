@@ -22,6 +22,7 @@ insert into board
 (category, uid, uName, title, content, writeTM)
 values
 ('review', 'sample', '샘플', '이용 후기', '추천합니다.', now());
+update board set views = views + 1 where num = 1;
 
 select num, uName, title, views, writeTM
 from board where category = 'notice' order by num desc;

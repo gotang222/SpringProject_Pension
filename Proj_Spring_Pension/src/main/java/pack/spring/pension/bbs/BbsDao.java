@@ -17,6 +17,11 @@ public class BbsDao {
 	public List<Map<String, Object>> select_list(Map<String, Object> map) {
 		return this.sqlSessionTemplate.selectList("bbs.select_list", map);
 	}
+	
+	// 전체 게시글 수
+	public Map<String, Object> select_count(Map<String, Object> map) {
+		return this.sqlSessionTemplate.selectOne("bbs.select_count", map);
+	}
 
 	// 게시판 글작성
 	public int insert(Map<String, Object> map) {
@@ -29,4 +34,10 @@ public class BbsDao {
 		return this.sqlSessionTemplate.selectOne("bbs.select_detail", map);
 	}
 	
+	// 글 수정하기
+	public int update_board(Map<String, Object> map) {
+		return this.sqlSessionTemplate.update("bbs.update_board", map);
+	}
+	
 }
+

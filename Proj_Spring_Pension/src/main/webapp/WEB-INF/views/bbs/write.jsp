@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>글작성 페이지</title>
-<link rel="shortcut icon" href="#">
+<!-- <link rel="shortcut icon" href="#"> -->
 <link rel="stylesheet" href="/resources/style/style_Common.css">
 <link rel="stylesheet" href="/resources/style/style_bbs/notice.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -17,10 +17,7 @@
 		<h1>글작성</h1>
 		<form method="post">
 			<div id="writeArea">
-				<select name="category">
-					<option value="notice">공지사항</option>
-					<option value="review">이용후기</option>
-				</select>
+				<input type="text" id="category" name="category" value="${category}" readonly>
 				<input type="text" id="title" name="title" placeholder="제목을 입력하세요.">
 				<textarea id="content" name="content" placeholder="내용을 입력하세요."></textarea>
 			</div>

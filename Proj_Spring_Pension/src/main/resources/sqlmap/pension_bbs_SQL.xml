@@ -7,10 +7,20 @@
 		<![CDATA[
 			select
 			num, category, uName, title, views, writeTM
-			from board where category = #{category} order by num desc
+			from board where category = #{category}
+			order by num desc limit #{start}, #{end}
 		]]>
 	</select>
 	<!-- 게시판 목록 끝 -->
+	
+	<!-- 전체 게시글 수 시작 -->
+	<select id="select_count" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select count(num)
+			from board where category = #{category}
+		]]>
+	</select>
+	<!-- 전체 게시글 수 끝 -->
 	
 	<!-- 게시판 글작성 시작  -->
 	<insert id="insert" parameterType="hashMap" useGeneratedKeys="true" keyProperty="num">
@@ -27,7 +37,7 @@
 	<select id="select_detail" parameterType="hashMap" resultType="hashMap">
 		<![CDATA[
 			select
-			num, category, uName, title, content, views, writeTM
+			num, category, uid, uName, title, content, views, writeTM
 			from board where num = #{num}
 		]]>
 	</select>
@@ -42,9 +52,13 @@
 	<!-- 조회수 증가 끝 -->
 	
 	<!-- 게시글 수정 시작 -->
-	<update id="update_board" parameterType="hashMap">
+	<update id="update_board" parameterType="hashMap" useGeneratedKeys="true" keyProperty="num">
 		<![CDATA[
-			update board set views = views + 1 where num = #{num}
+			update board set 
+			category = #{category},
+			title = #{title},
+			content = #{content}
+			where num = #{num}
 		]]>
 	</update>
 	<!-- 게시글 수정 끝 -->

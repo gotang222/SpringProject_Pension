@@ -18,6 +18,13 @@ public class BbsServiceImp implements BbsService {
 		return this.bbsDao.select_list(map);
 	}
 	
+	// 전체 게시글 수
+	@Override
+	public long select_count(Map<String, Object> map) {
+		Map<String, Object> resMap = this.bbsDao.select_count(map);
+		return (long) resMap.get("count(num)");
+	}
+	
 	// 게시판 글작성
 	@Override
 	public String insert(Map<String, Object> map) {
@@ -32,6 +39,15 @@ public class BbsServiceImp implements BbsService {
 	@Override
 	public Map<String, Object> select_detail(Map<String, Object> map) {
 		return this.bbsDao.select_detail(map);
+	}
+	
+	// 글 수정하기
+	public String update_board(Map<String, Object> map) {
+		int affectRowCnt = this.bbsDao.update_board(map);
+		if (affectRowCnt == 1) {
+			return map.get("num").toString();
+		}
+		return null;
 	}
 
 }
