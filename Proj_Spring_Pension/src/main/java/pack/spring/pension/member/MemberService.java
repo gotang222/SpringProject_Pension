@@ -10,4 +10,10 @@ public interface MemberService {
 	// 로그인
 	Map<String, Object> select(Map<String, Object> map);
 	
+	// 마이페이지
+	Map<String, Object> select_myPage(Map<String, Object> map);
+	
+	//회원정보수정
+	int update_member(Map<String, Object> map);
+	
 }

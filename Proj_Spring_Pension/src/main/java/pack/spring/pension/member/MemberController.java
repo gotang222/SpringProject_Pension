@@ -64,4 +64,28 @@ public class MemberController {
 		return mav;
 	}
 	
+	//마이페이지
+	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
+	public ModelAndView myPage(@RequestParam Map<String, Object> map) {
+		ModelAndView mav = new ModelAndView();
+		
+		Map<String, Object> myPageMap = this.memberService.select_myPage(map);
+
+		mav.addObject("data", myPageMap);
+		mav.setViewName("/member/myPage");
+		return mav;
+	}
+	
+	//회원정보수정
+	@RequestMapping(value = "/myPage", method = RequestMethod.POST)
+	public ModelAndView myPage_update(@RequestParam Map<String, Object> map) {
+		ModelAndView mav = new ModelAndView();
+
+		int num = this.memberService.update_member(map);
+		
+		mav.setViewName("redirect:/");
+		
+		return mav;
+	}
+	
 }

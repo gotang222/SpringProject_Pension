@@ -60,11 +60,12 @@
 					</c:if>
 	            	
 	            	<c:if test="${not empty session_uid}">
+	            	<c:set var="uid" value="${session_uid} }"></c:set>
 	            		<li>
 		            		<a href="/resources/logoutTest.jsp">로그아웃</a>
 	            		</li>
 	            		<li>
-							<a href="#">마이페이지</a>
+							<a href="/myPage?uid=${session_uid}">마이페이지</a>
 	            		</li>
 	            	</c:if>
 				</ul>
