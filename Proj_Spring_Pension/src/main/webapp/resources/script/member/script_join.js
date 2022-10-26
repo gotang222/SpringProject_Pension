@@ -1,5 +1,102 @@
 $(function(){
 	
+	/* ID 중복확인 팝업 */
+	$("button#idChkBtn").click(function(){
+		let uid = $("#uid").val().trim();
+		
+		if (uid == "") {
+			alert("아이디를 입력해주세요.");
+			$("#uid").focus();
+			
+		} else if (idChk()) {
+			alert("아이디는 3~20자의 영문 대소문자, 숫자만 사용 가능합니다.");
+			$("#uid").focus();
+			
+		} else {
+			
+			
+			let url = "/member/idChk?uid="+uid;
+			let nickName = "idChk";
+	
+			let w = screen.width;     // 1920
+			let popWidth = 480;
+			let leftPos = (w - popWidth) / 2; // left Position 팝업창 왼쪽 시작위치
+	
+			let h = screen.height;    // 1080
+			let popHeight = 320;
+			let topPos = (h - popHeight) / 2;
+	
+			let prop = "width="+ popWidth +", height="+ popHeight;
+				  prop += ", left=" + leftPos + ", top=" + topPos; 
+			window.open(url, nickName, prop);
+			
+			// 사용 예 : 팝업창의 가로폭 200px, 높이 100px 이며
+			//            화면의 왼쪽에서 300px, 위쪽에서 400px 에 위치한 곳에 팝업창 출력
+			//             =>  window.open("파일명", "닉네임", 
+			//                      "width=200, height=100, left=300, top=400")          
+		}
+	});
+	
+	/* 아이디 / 비밀번호 유효성 검사 시작 */
+	function idChk() {
+		let uid = $("input#uid").val().trim();
+		let reg = /[^a-z|A-Z|0-9]/;
+		let ToF = reg.test(uid) || $("#uid").val().length < 3;
+		return ToF; 
+	}
+	function pwChk() {
+		let upw = $("input#upw").val().trim();
+		let reg = /[^a-z|A-Z|0-9|_\-\!@]/;
+		let ToF = reg.test(upw) || $("#upw").val().length < 3;
+		return ToF;
+	}
+	/* 아이디 / 비밀번호 유효성 검사 끝 */
+	
+	// 아이디 중복체크 팝업창 닫기
+	$("button#popCloseBtn").click(function(){
+		let idCheck = $(this).val();
+		
+		if (idCheck == 1) {
+			$("span#idChkTxt", opener.document).text("중복된 아이디입니다.");
+		} else {
+			$("span#idChkTxt", opener.document).text("사용 가능한 아이디입니다.");
+		}
+		$("input#idCheck", opener.document).val(idCheck);
+		window.close();
+		opener.joinFrm.uid.focus();
+		// DOM으로 접근
+		// opener객체는 팝업창을 실행한 부모페이지를 지칭함.
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/* 아이디 유효성 검사 */
 	$("input#uid").keyup(function(){
 		$("input#idCheck").val(0);
@@ -54,20 +151,10 @@ $(function(){
 	
 });
 
-/* 아이디 비밀번호 유효성 검사 시작 */
-function idChk() {
-	let uid = $("input#uid").val().trim();
-	let reg = /[^a-z|A-Z|0-9]/;
-	let ToF = reg.test(uid) || $("#uid").val().length < 3;
-	return ToF; 
-}
-function pwChk() {
-	let upw = $("input#upw").val().trim();
-	let reg = /[^a-z|A-Z|0-9|_\-\!@]/;
-	let ToF = reg.test(upw) || $("#upw").val().length < 3;
-	return ToF;
-}
-/* 아이디 / 비밀번호 유효성 검사 끝 */
+
+
+
+
 	
 /* 회원가입 처리 시작 */
 function joinSubmit() {

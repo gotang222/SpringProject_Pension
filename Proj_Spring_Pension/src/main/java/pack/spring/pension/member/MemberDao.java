@@ -22,4 +22,14 @@ public class MemberDao {
 		return this.sqlSessionTemplate.selectOne("member.select", map);
 	}
 	
+	//마이페이지
+	public Map<String, Object> select_myPage(Map<String, Object> map) {
+		return this.sqlSessionTemplate.selectOne("member.select_myPage", map);
+	}
+	
+	//회원정보수정
+	public int update_member(Map<String, Object> map){
+		return this.sqlSessionTemplate.update("member.update_member", map);
+	}
+	
 }

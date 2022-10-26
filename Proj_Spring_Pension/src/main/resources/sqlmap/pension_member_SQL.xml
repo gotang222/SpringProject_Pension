@@ -22,5 +22,26 @@
 		]]>
 	</select>
 	<!-- 로그인 끝 -->
+	
+	<!-- 마이페이지 시작 -->
+	<select id="select_myPage" parameterType="hashMap" 	resultType="hashMap">
+		 <![CDATA[
+		 	select
+			uid, uName, uBirth, uPhone, uEmail, uGender, uZipcode, uAddr
+			from member where uid = #{uid}
+		 ]]>
+	</select>
+	<!-- 마이페이지 끝 -->
+	
+	<!-- 회원정보수정 시작 -->
+	<update id="update_member" parameterType="hashMap">
+		<![CDATA[
+		 	update member set
+		 	upw=#{upw}, uBirth=#{uBirth}, uPhone=#{uPhone},
+		 	uEmail=#{uEmail}, gender=#{gender},
+		 	uZipcode=#{uZipcode}, uAddr=#{uAddr} where uid=#{uid}
+		 ]]>
+	</update>
+	<!-- 회원정보수정 끝 -->
 
 </mapper>

@@ -28,5 +28,21 @@ public class MemberServiceImp implements MemberService {
 	public Map<String, Object> select(Map<String, Object> map) {
 		return this.memberDao.select(map);
 	}
+	
+	//마이페이지
+	@Override
+	public Map<String, Object> select_myPage(Map<String, Object> map) {
+		return this.memberDao.select_myPage(map);
+	}
+	
+	//회원정보수정
+	@Override
+	public int update_member(Map<String, Object> map) {
+		int rowCnt = memberDao.update_member(map);
+		if(rowCnt==1) {
+			return rowCnt;
+		}
+		return 0;
+	}
 
 }
