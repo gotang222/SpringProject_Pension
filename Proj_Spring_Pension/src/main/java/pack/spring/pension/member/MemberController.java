@@ -60,7 +60,7 @@ public class MemberController {
 		session.setAttribute("session_data", loginMap);
 		session.setAttribute("session_uid", map.get("uid").toString());
 		mav.addObject("data", loginMap);
-		mav.setViewName("/index");
+		mav.setViewName("redirect:/");
 		return mav;
 	}
 	

@@ -21,9 +21,10 @@
 		<p>내용 : ${detail.content}</p>
 		<p>조회수 : ${detail.views}</p>
 		<p>작성시간 : ${detail.writeTM}</p>
-		<a href="/board?category=${detail.category}">목록으로</a>
+		<a href="/board?category=${detail.category}&nowPage=${nowPage}">목록으로</a>
 		<c:if test="${session_uid eq detail.uid}">
-			<a href="/modify?num=${detail.num}">수정</a>
+			<a href="/modify?category=${detail.category}&num=${detail.num}&nowPage=${nowPage}">수정</a>
+			<a href="/delete?category=${detail.category}&num=${detail.num}">삭제</a>
 		</c:if>
 	</div>
 	<!-- div#wrap -->

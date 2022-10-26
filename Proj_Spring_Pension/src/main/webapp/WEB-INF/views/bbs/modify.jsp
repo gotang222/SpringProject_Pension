@@ -17,12 +17,10 @@
 		<h1>글수정</h1>
 		<form method="post">
 			<div id="writeArea">
-				<select name="category">
-					<option value="notice">공지사항</option>
-					<option value="review">이용후기</option>
-				</select>
+				<input type="text" id="category" name="category" value="${category}" readonly>
 				<input type="text" id="title" name="title" value="${detail.title}" placeholder="제목을 입력하세요.">
 				<textarea id="content" name="content" placeholder="내용을 입력하세요.">${detail.content}</textarea>
+				<input type="hidden" name="nowPage" value="${nowPage}">
 			</div>
 			<button>작성</button>
 			<!-- div#writeArea -->
