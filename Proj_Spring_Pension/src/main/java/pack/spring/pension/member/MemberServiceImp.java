@@ -44,5 +44,15 @@ public class MemberServiceImp implements MemberService {
 		}
 		return 0;
 	}
+	
+	//회원탈퇴
+	@Override
+	public int delete_member(Map<String, Object> map) {
+		int rowCnt = memberDao.delete_member(map);
+		if(rowCnt==1) {
+			return rowCnt;
+		}
+		return 0;
+	}
 
 }

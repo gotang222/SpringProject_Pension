@@ -60,7 +60,7 @@ public class MemberController {
 		session.setAttribute("session_data", loginMap);
 		session.setAttribute("session_uid", map.get("uid").toString());
 		mav.addObject("data", loginMap);
-		mav.setViewName("redirect:/");
+		mav.setViewName("/index");
 		return mav;
 	}
 	
@@ -80,11 +80,25 @@ public class MemberController {
 	@RequestMapping(value = "/myPage", method = RequestMethod.POST)
 	public ModelAndView myPage_update(@RequestParam Map<String, Object> map) {
 		ModelAndView mav = new ModelAndView();
-
+		System.out.println(777);
 		int num = this.memberService.update_member(map);
 		
-		mav.setViewName("redirect:/");
+		mav.setViewName("/index");
 		
+		return mav;
+	}
+	
+	//회원탈퇴
+	@RequestMapping(value = "/resign", method = RequestMethod.GET)
+	public ModelAndView resign(@RequestParam Map<String, Object> map, HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+		int num = this.memberService.delete_member(map);
+		System.out.println("num : "+num);
+		HttpSession session = req.getSession();
+		if(num==1) {
+			session.invalidate();
+			mav.setViewName("redirect:/");
+		}
 		return mav;
 	}
 	

@@ -2,34 +2,27 @@
     pageEncoding="UTF-8" autoFlush="true"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
 		<meta charset="UTF-8">
 		<title>회원정보 수정</title>
 		<link rel="shortcut icon" href="#">
-		<link rel="stylesheet" href="/style/style_Common.css">
-		<link rel="stylesheet" href="/style/style_Member.css">
+		<link rel="stylesheet" href="/resources/style/style_Common.css">
+		<link rel="stylesheet" href="/resources/style/style_Member.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="/resources/script/member/script_Join.js"></script>
+		<script src="/resources/script/member/script_join.js"></script>
 	</head>
 	<body>
 
 		<div id="wrap" class="dFlex modifyWrap">
-			<div id="myPageLnbArea">
-				<ul id="myPageLnb">
-					<li><a>예약내역 확인(미구현)</a></li>
-					<li><a>회원정보 수정</a></li>
-					<li><a onclick="resign()">회원 탈퇴하기</a></li>
-				</ul>
-			</div>
-			<!-- div#myPageLnbArea -->
 			
 			<div id="myPageArea">
 				<h1>회원정보 수정</h1>
 				<h1></h1>
-				<form  id="modifyFrm">
-					<input type="hidden" name="uid" value="${data.uid}">
+				<form  id="modifyFrm" method="post">
+					<input type="hidden" name="uid" id="uid" value="${data.uid}">
 					<table id="joinTbl">
 						<caption>* 표시는 필수 입력사항입니다.</caption>
 						<tbody>
@@ -104,32 +97,32 @@
 							<tr>
 								<td>성별</td>
 								<td>
-									<c:set var="gender" value="${data.uGender}"></c:set>
+									<c:set var="uGender" value="${data.uGender}"></c:set>
 									<c:set var="noChk" value="checked"></c:set>
 									<c:choose>
-										<c:when test="${not empty gender}">
+										<c:when test="${not empty uGender}">
 											<c:choose>
-												<c:when test="${gender eq '1'}">
+												<c:when test="${uGender eq '1'}">
 													<c:set var="mailChk" value="checked"></c:set>
 												</c:when>
-												<c:when test="${gender eq '2'}">
+												<c:when test="${uGender eq '2'}">
 													<c:set var="femailChk" value="checked"></c:set>
 												</c:when>
 											</c:choose>
 										</c:when>
 									</c:choose>
 									<label>
-										선택 안함 <input type="radio" name="gender"
+										선택 안함 <input type="radio" name="uGender"
 										value="" ${noChk}>
 									</label>
 									&nbsp;&nbsp;
 									<label>
-										남 <input type="radio" name="gender"
+										남 <input type="radio" name="uGender"
 										value="1" ${mailChk}>
 									</label>
 									&nbsp;&nbsp;
 									<label>
-										여 <input type="radio" name="gender"
+										여 <input type="radio" name="uGender"
 										value="2" ${femailChk}>
 									</label>
 								</td>
@@ -154,6 +147,7 @@
 							<tr>
 								<td colspan="2">
 									<button type="button" id="modifySubmitBtn">수정하기</button>
+									<button type="button" onclick="resign()">회원 탈퇴하기</button>
 								</td>
 							</tr>
 						</tfoot>

@@ -32,4 +32,9 @@ public class MemberDao {
 		return this.sqlSessionTemplate.update("member.update_member", map);
 	}
 	
+	//회원탈퇴
+	public int delete_member(Map<String, Object> map) {
+		return this.sqlSessionTemplate.delete("member.delete_member", map);
+	}
+	
 }

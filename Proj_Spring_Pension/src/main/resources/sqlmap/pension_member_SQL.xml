@@ -38,10 +38,18 @@
 		<![CDATA[
 		 	update member set
 		 	upw=#{upw}, uBirth=#{uBirth}, uPhone=#{uPhone},
-		 	uEmail=#{uEmail}, gender=#{gender},
+		 	uEmail=#{uEmail}, uGender=#{uGender},
 		 	uZipcode=#{uZipcode}, uAddr=#{uAddr} where uid=#{uid}
 		 ]]>
 	</update>
 	<!-- 회원정보수정 끝 -->
+	
+	<!-- 회원 탈퇴 시작 -->
+	<delete id="delete_member" parameterType="hashMap">
+		<![CDATA[
+		 	delete from member where uid=#{uid};
+		 ]]>
+	</delete>
+	<!-- 회원 탈퇴 시작 -->
 
 </mapper>

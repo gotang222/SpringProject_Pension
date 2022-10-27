@@ -16,4 +16,7 @@ public interface MemberService {
 	//회원정보수정
 	int update_member(Map<String, Object> map);
 	
+	//회원탈퇴
+	int delete_member(Map<String, Object> map);
+	
 }
