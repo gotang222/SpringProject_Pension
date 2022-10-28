@@ -16,6 +16,12 @@ public class MemberDao {
 	public int insert(Map<String, Object> map) {
 		return this.sqlSessionTemplate.insert("member.insert", map);
 	}
+	
+	//ID중복확인
+	public Map<String, Object> select_idChk(Map<String, Object> map) {
+		System.out.println("DAO return : " + this.sqlSessionTemplate.selectOne("member.select_idChk", map));
+		return this.sqlSessionTemplate.selectOne("member.select_idChk", map);
+	}
 
 	// 로그인
 	public Map<String, Object> select(Map<String, Object> map) {

@@ -13,6 +13,15 @@
 	</insert>
 	<!-- 회원가입 끝 -->
 	
+	<!-- ID중복확인 시작 -->
+	<select id="select_idChk" parameterType="hashMap" resultType="hashMap">
+		<![CDATA[
+			select
+			uid from member where uid=#{uid};
+		]]>
+	</select>		
+	<!-- ID중복확인 끝 -->
+	
 	<!-- 로그인 시작 -->
 	<select id="select" parameterType="hashMap" resultType="hashMap">
 		<![CDATA[

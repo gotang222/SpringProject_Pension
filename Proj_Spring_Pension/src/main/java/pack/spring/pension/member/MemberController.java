@@ -41,9 +41,21 @@ public class MemberController {
 		return mav;
 	}
 	
+	//ID중복확인
+	@RequestMapping(value = "/idChk", method = RequestMethod.GET)
+	public ModelAndView select_idChk(@RequestParam Map<String, Object> map) {
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> idChk = this.memberService.select_idChk(map);
+		System.out.println("idChk 값 확인 : "+idChk);
+		mav.addObject("inputuid", map.get("uid"));
+		mav.addObject("idChk", idChk);
+		mav.setViewName("/member/idChk");
+		return mav;
+	}
+	
 	// 로그인 페이지
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login() {
+	public ModelAndView login(@RequestParam Map<String, Object> map) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/member/login");
 		return mav;
@@ -55,13 +67,20 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		
 		Map<String, Object> loginMap = this.memberService.select(map);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("session_data", loginMap);
-		session.setAttribute("session_uid", map.get("uid").toString());
-		mav.addObject("data", loginMap);
-		mav.setViewName("/index");
+		System.out.println("loginMap : " + loginMap);
+		if(loginMap != null) {
+			System.out.println("if 들어왔음");
+			HttpSession session = request.getSession();
+			session.setAttribute("session_data", loginMap);
+			session.setAttribute("session_uid", map.get("uid").toString());
+			mav.addObject("data", loginMap);
+			mav.setViewName("/index");
+		} else {
+
+			mav.setViewName("/member/loginFail");
+		}
 		return mav;
+		
 	}
 	
 	//마이페이지

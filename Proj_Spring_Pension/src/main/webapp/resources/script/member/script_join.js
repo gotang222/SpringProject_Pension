@@ -15,7 +15,7 @@ $(function(){
 		} else {
 			
 			
-			let url = "/member/idChk?uid="+uid;
+			let url = "/idChk?uid="+uid;
 			let nickName = "idChk";
 	
 			let w = screen.width;     // 1920
@@ -86,7 +86,7 @@ $(function(){
 	
 	/* 아이디 유효성 검사 */
 	$("input#uid").keyup(function(){
-		$("input#idCheck").val(0);
+		$("input#idCheck").val(1);
 		if (idChk()) {
 			$("p#idGuideTxt").css("color", "red");
 		} else {
@@ -173,7 +173,7 @@ function joinSubmit() {
 	let uEmail1 = $("#uEmail1").val().trim();
 	let uEmail2 = $("#uEmail2").val().trim();
 	let idCheck = $("#idCheck").val().trim();
-	
+	alert("idCheck : "+idCheck);
 	if (uid == "") {
 		alert("아이디를 입력해주세요.");
 		$("#uid").focus();
@@ -182,7 +182,7 @@ function joinSubmit() {
 		alert("아이디는 3~20자의 영문 대소문자, 숫자만 사용 가능합니다.");
 		$("#uid").focus();
 		
-	} else if (idCheck == "") {
+	} else if (idCheck != 0 ) {
 		alert("ID중복 확인해주세요.");
 		$("#uid").focus();
 		

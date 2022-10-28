@@ -26,9 +26,10 @@
 						<td>
 							<input type="text" id="uid" name="uid"
 							maxlength="20" placeholder="아이디">
+
 							<button type="button" id="idChkBtn">ID중복확인</button>
 							<span id="idChkTxt"></span>
-							<input type="hidden" id="idCheck" value="">
+							<input type="text" id="idCheck" value="">
 							<p id="idGuideTxt" class="guideTxt">
 								3~20자의 영문 대소문자, 숫자만 사용 가능합니다.
 							</p>

@@ -23,6 +23,12 @@ public class MemberServiceImp implements MemberService {
 		return 0;
 	}
 	
+	//ID중복확인
+	@Override
+	public Map<String, Object> select_idChk(Map<String, Object> map) {
+		return memberDao.select_idChk(map);
+	}
+	
 	// 로그인
 	@Override
 	public Map<String, Object> select(Map<String, Object> map) {

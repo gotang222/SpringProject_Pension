@@ -6,6 +6,9 @@ public interface MemberService {
 
 	//회원가입
 	int insert(Map<String, Object> map);
+	
+	//ID중복확인
+	Map<String, Object> select_idChk(Map<String, Object> map);
 
 	// 로그인
 	Map<String, Object> select(Map<String, Object> map);

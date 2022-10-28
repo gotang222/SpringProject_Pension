@@ -14,7 +14,10 @@
 <body>
 	<jsp:include page="/resources/include/header.jsp" flush="true" />
 	<div id="wrap">
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
 		<h1>로그인</h1>
+
 			<form method="post" id="loginFrm" class="dFlex">
 				<div id="inputArea">
 					<input type="text" id="uid" name="uid" form="loginFrm"
