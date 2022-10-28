@@ -13,6 +13,7 @@ public class BookingServiceImp implements BookingService {
 	//모든객실 불러오기
 	@Override
 	public List<Map<String, Object>> select_list() {
-		return this.bookingDAO.select_list();
+		return bookingDAO.select_list();
 	}
+	
 }

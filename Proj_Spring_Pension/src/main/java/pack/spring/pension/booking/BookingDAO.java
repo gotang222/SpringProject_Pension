@@ -9,10 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class BookingDAO {
 	
 	@Autowired
-	SqlSessionTemplate sessionTemplate;
+	SqlSessionTemplate sqlSessionTemplate;
 	
-	//모든객실 불러오기
 	public List<Map<String, Object>> select_list() {
-		return sessionTemplate.selectList("booking.select_list");
+		return this.sqlSessionTemplate.selectList("booking.select_list");
 	}
 }

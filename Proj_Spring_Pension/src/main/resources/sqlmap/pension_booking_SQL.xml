@@ -3,7 +3,7 @@
 <mapper namespace="booking">
 
 	<!-- 모든 객실 정보 불러오기 시작 -->
-	<select id="select_list" parameterType="hashMap" resultType="hashMap">
+	<select id="select_list" resultType="hashMap">
 		<![CDATA[
 			select 
 			num, rName, rLimit, rPrice from roomInfo order by num asc
