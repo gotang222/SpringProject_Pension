@@ -59,7 +59,7 @@ public class BbsController {
 		map.put("uName", loginMap.get("uName"));
 		
 		String num = this.bbsService.insert(map);
-		mav.setViewName("redirect:/detail?num=" + num);
+		mav.setViewName("redirect:/detail?num=" + num + "&nowPage=1");
 		return mav;
 	}
 	

@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+
+div#myPageArea {
+	margin: 0 auto;
+}
+
+/* table#joinTbl {
+	width: 900px;
+	margin: 10px;
+}
+#joinTbl>caption {
+	text-align: right;
+	padding: 10px 0;
+}
+#joinTbl>tfoot {
+	height: 50px;
+} */
+
+div#wrap table#joinTbl {
+	width: 900px;
+	padding: 20px;
+	/* border: 1px solid #aaa; */
+	border-collapse: collapse;
+	margin: 30px auto;
+}
+#joinTbl caption {
+	text-align: right;
+	padding-bottom: 10px;
+}
+#joinTbl tbody td {
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+#joinTbl tbody td:first-child {
+	text-align: right;
+	background-color: #fafafa;
+}
+#joinTbl tbody .guideTxt {
+	color: #888;
+	font-size: 14px;
+}
+#joinTbl tbody p.guideTxt {
+	line-height: 2em;
+	vertical-align: bottom;
+}
+
+#joinTbl tfoot td {
+	text-align: center;
+	padding-top: 40px;
+}
+#joinTbl #joinSubmitBtn,
+#joinTbl #modifySubmitBtn,
+#joinTbl #resignBtn {
+	width: 300px;
+	height: 55px;
+	font-size: 18px;
+}
+
+
+
+/* ////////////////////////////  시작 //////////////////////////// */
+/* ////////////////////////////  끝 //////////////////////////// */
+/* ///////////////  시작 /////////////// */
+/* ///////////////  끝 /////////////// */
+/* 시작 */
+/* 끝 */

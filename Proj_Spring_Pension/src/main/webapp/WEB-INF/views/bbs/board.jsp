@@ -8,7 +8,7 @@
 <title>게시판 페이지</title>
 <!-- <link rel="shortcut icon" href="#"> -->
 <link rel="stylesheet" href="/resources/style/style_Common.css">
-<link rel="stylesheet" href="/resources/style/style_bbs/notice.css">
+<link rel="stylesheet" href="/resources/style/bbs/style_board.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/resources/script/script.js"></script>
 <style>
@@ -50,7 +50,9 @@
 					<c:if test="${!(category eq 'notice')}">
 						<td>${row.num}</td>
 					</c:if>
-						<td><a href="/detail?num=${row.num}&nowPage=${pVO.nowPage}">${row.title}</a></td>
+						<td class="rowTitle">
+							<a href="/detail?num=${row.num}&nowPage=${pVO.nowPage}">${row.title}</a>
+						</td>
 						<td>${row.uName}</td>
 						<td>${row.writeTM}</td>
 						<td>${row.views}</td>
@@ -62,12 +64,12 @@
 			
 			<tfoot>
 				<tr>
-					<td colspan="2">
+					<td colspan="2" id="totalRecordArea">
 						전체 게시글 : ${pVO.totalRecord} 개
 					</td>
 				<!-- 글작성 버튼 시작 -->
 				<c:if test="${(session_uid eq 'admin') || (!(category eq 'notice') and not empty session_uid)}">
-					<td colspan="5">
+					<td colspan="3" id="writeBtnArea">
 						<a href="/write?category=${category}">글작성</a>
 					</td>
 				</c:if>
@@ -77,23 +79,27 @@
 		</table>
 		<!-- table#boardTbl -->
 		
-		<div id="pagingArea">
+		<div id="pagingArea" class="dFlex">
 			<c:if test="${pVO.nowBlock > 1}">
 			<c:set var="prevBlock" value="${pVO.pagePerBlock * (pVO.nowBlock - 1)}" />
-			<a href="/board?category=${category}&nowPage=${prevBlock}">&lt;</a>
+			<div>
+				<a href="/board?category=${category}&nowPage=${prevBlock}">&lt;</a>
+			</div>
 			</c:if>
 			
-			<span>
+			<div id="pageNumArea" class="dFlex">
 			<c:forEach var="i" begin="${pVO.pageStart}" end="${pVO.pageEnd}">
 				<a href="/board?category=${category}&nowPage=${i}"
 				<c:if test="${pVO.nowPage eq i}">class="now"</c:if>
 				>${i}</a>
 			</c:forEach>
-			</span>
+			</div>
 			
 			<c:if test="${pVO.nowBlock < pVO.totalBlock}">
 			<c:set var="nextBlock" value="${pVO.pagePerBlock * pVO.nowBlock + 1}" />
-			<a href="/board?category=${category}&nowPage=${nextBlock}">&gt;</a>
+			<div>
+				<a href="/board?category=${category}&nowPage=${nextBlock}">&gt;</a>
+			</div>
 			</c:if>
 		</div>
 		<!-- div#pagingArea -->

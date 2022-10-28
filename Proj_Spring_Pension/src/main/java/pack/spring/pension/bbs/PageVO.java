@@ -2,7 +2,7 @@ package pack.spring.pension.bbs;
 
 public class PageVO {
 
-	private int numPerPage = 5; // 페이지당 출력하는 데이터 수(=게시글 숫자)
+	private int numPerPage = 10; // 페이지당 출력하는 데이터 수(=게시글 숫자)
 	private int pagePerBlock = 5; // 블럭당 표시되는 페이지 수의 개수
 	private int totalRecord; // 전체 데이터 수(DB에 저장된 row 개수)
 	private int totalPage; // 전체 페이지 수

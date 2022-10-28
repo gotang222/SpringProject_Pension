@@ -10,11 +10,12 @@
 		<title>회원정보 수정</title>
 		<link rel="shortcut icon" href="#">
 		<link rel="stylesheet" href="/resources/style/style_Common.css">
-		<link rel="stylesheet" href="/resources/style/style_Member.css">
+		<link rel="stylesheet" href="/resources/style/member/style_myPage.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="/resources/script/member/script_join.js"></script>
 	</head>
 	<body>
+		<jsp:include page="/resources/include/header.jsp" flush="true" />
 
 		<div id="wrap" class="dFlex modifyWrap">
 			
@@ -147,7 +148,7 @@
 							<tr>
 								<td colspan="2">
 									<button type="button" id="modifySubmitBtn">수정하기</button>
-									<button type="button" onclick="resign()">회원 탈퇴하기</button>
+									<button type="button" id="resignBtn" onclick="resign()">회원 탈퇴하기</button>
 								</td>
 							</tr>
 						</tfoot>
@@ -160,5 +161,6 @@
 		</div>
 		<!-- div#wrap -->
 		
+		<jsp:include page="/resources/include/footer.jsp" flush="true" />
 	</body>
 </html>

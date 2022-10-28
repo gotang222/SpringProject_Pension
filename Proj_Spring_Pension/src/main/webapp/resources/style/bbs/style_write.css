@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+table#writeTbl {
+	width: 900px;
+	margin: 0 auto;
+}
+
+#writeTbl th,
+#writeTbl td {
+	border: none;
+}
+#writeTbl input#title {
+	width: 100%;
+	font-size: 24px;
+}
+#writeTbl td#contentArea {
+	height: 300px;
+}
+#writeTbl textarea#content {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+
+#writeTbl td#btnArea {
+	text-align: center;
+	padding-top: 40px;
+}
+#writeTbl td#btnArea>button {
+	width: 300px;
+	height: 55px;
+	font-size: 18px;
+}
+
+
+
+
+/* ////////////////////////////  시작 //////////////////////////// */
+/* ////////////////////////////  끝 //////////////////////////// */
+/* ///////////////  시작 /////////////// */
+/* ///////////////  끝 /////////////// */
+/* 시작 */
+/* 끝 */
