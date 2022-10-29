@@ -9,7 +9,7 @@
 	<title>예약현황</title>
 	<link rel="shortcut icon" href="#">
 	<link rel="stylesheet" href="/resources/style/style_Common.css">
-	<link rel="stylesheet" href="/resources/style/booking/style_Booking.css">
+	<link rel="stylesheet" href="/resources/style/booking/Booking.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="/resources/script/booking/script_Booking.js"></script>
 </head>

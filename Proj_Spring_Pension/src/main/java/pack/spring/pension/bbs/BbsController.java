@@ -21,7 +21,7 @@ public class BbsController {
 	// 게시판 목록
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public ModelAndView list(@RequestParam Map<String, Object> map) {
-		
+		System.out.println("map이란 : "+map);
 		ModelAndView mav = new ModelAndView();
 		PageVO pVO = new PageVO();
 		

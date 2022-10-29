@@ -5,10 +5,17 @@
 	<!-- 모든 객실 정보 불러오기 시작 -->
 	<select id="select_list" resultType="hashMap">
 		<![CDATA[
-			select 
-			num, rName, rLimit, rPrice from roomInfo order by num asc
+			select num, rName, rLimit, rPrice, rPictures from roomInfo order by num desc
 		]]>
 	</select>
 	<!-- 모든 객실 정보 불러오기 끝 -->
+	
+	<!-- 해당 날짜 예약 여부 확인 시작 -->
+	<select id="select_chkBooking" resultType="hashMap">
+		<![CDATA[
+			select count(*) from roomBooking where rNum=#{rNum} and bDate LIKE CONCAT('%',#{bDate},'%')
+		]]>
+	</select>
+	<!-- 해당 날짜 예약 여부 확인 끝 -->
 
 </mapper>

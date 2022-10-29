@@ -14,19 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import pack.spring.pension.bbs.PageVO;
-
 @Controller
 public class BookingController {
-
+	
 	@Autowired
 	BookingService bookingService;
-
 	
-	// 캘린더
+
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public ModelAndView calendar(@RequestParam Map<String, Object> map) {
-
+		
 		RoomVO rVO = new RoomVO();
 		List<Map<String, Object>> objList = this.bookingService.select_list();
 		String decimalFormat = "#,###";
@@ -114,15 +111,18 @@ public class BookingController {
 			
 			Calendar compareCal = Calendar.getInstance(); // 날짜 비교용 캘린더 객체
 			compareCal.set(year, month, i);
-			
+
 			if (compareCal.before(nowCal)) { // 오늘 이전의 날짜
 				taglist.add("<span>예약종료</span>");
 			} else {
 				for (int j = 0; j < objList.size(); j++) {
 					
 					Map<String, Object> m = objList.get(j); 
+					int rNum = Integer.parseInt(m.get("num").toString());
 					String rName = m.get("rName").toString();
-					int rPrice = Integer.parseInt(m.get("rName").toString());
+					int rLimit =Integer.parseInt(m.get("rLimit").toString());
+					int rPrice =Integer.parseInt(m.get("rPrice").toString());
+					int rPictures =Integer.parseInt(m.get("rPictures").toString());
 					
 					
 					// 주말 요금 +20000원
@@ -130,17 +130,26 @@ public class BookingController {
 					if (dayWeek == 1 || dayWeek == 7) rPrice += weekendPrice;
 					
 					// 예약 여부 확인
-					int rNum = Integer.parseInt(m.get("num").toString());
 					dateFormat = "yyyy-MM-dd";
 					sdf = new SimpleDateFormat(dateFormat);
 					String bDate = sdf.format(compareCal.getTime());
 					
 					String chkBooking = "";
-//					if (bDAO.mtd_chkBooking(rNum, bDate)) {
-//						chkBooking = "booked";
-//					} else {
-//						chkBooking = "noBooked";
-//					}
+					map.put("rNum", rNum);
+					map.put("bDate", bDate);
+					Map<String, Object> temp = this.bookingService.select_chkBooking(map);
+					
+					int z = Integer.parseInt(temp.get("count(*)").toString());
+					boolean ToF =false;
+					if(z==1) {
+						ToF=true;
+					}
+					
+					if (ToF) {
+						chkBooking = "booked";
+					} else {
+						chkBooking = "noBooked";
+					}
 					
 					// 출력부분
 					taglist.add("<p class='dFlex' style='justify-content: space-between'>");
@@ -179,32 +188,11 @@ public class BookingController {
 		mav.addObject("taglist", taglist);		
 		mav.addObject("bDate", bDate);
 
-		mav.setViewName("/booking/test");
 		
+
+				
+		mav.setViewName("/booking/test");
 		return mav;
-	
 	}
 
-
-	// 캘린더
-//	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
-//	public ModelAndView calendar(@RequestParam Map<String, Object> map) {
-//		System.out.println("들어옴");
-//		ModelAndView mav = new ModelAndView();
-//		CalendarVO calendarVO = new CalendarVO();
-//		
-//		mav.addObject("nowYear", calendarVO.getNowYear());
-//		mav.addObject("nowMonth", calendarVO.getNowMonth());
-//		mav.addObject("nowDate", calendarVO.getNowDate());
-//		mav.addObject("nowDay", calendarVO.getNowDay());
-//		
-//		
-//
-//		mav.setViewName("/booking/calendar");
-//		
-//		return mav;
-//	
-//	}
-	
-	
 }
