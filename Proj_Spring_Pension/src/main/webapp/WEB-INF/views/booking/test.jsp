@@ -56,10 +56,10 @@
 		</c:if>
 
 		<input type="hidden" id="uid" name="uid" value="${uid}">
-		
-		<form action="/booking/booking.jsp" id="bookingFrm">
-			<input type="hidden" id="rName" name="rName" value="">
-			<input type="hidden" id="bDate" name="bDate" value="${bDate }">
+		<form action="/booking" id="bookingFrm">
+			<input type="hidden" id="rName" name="rName" value="${rName }">
+			<input type="hidden" id="bDate" name="bDate" value="">
+			<input type="hidden" id="bMoney" name="bMoney" value="">
 		</form>
 		
 	</div>

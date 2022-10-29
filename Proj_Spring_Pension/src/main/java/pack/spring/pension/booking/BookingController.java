@@ -23,7 +23,7 @@ public class BookingController {
 
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public ModelAndView calendar(@RequestParam Map<String, Object> map) {
-		
+		ModelAndView mav = new ModelAndView();
 		RoomVO rVO = new RoomVO();
 		List<Map<String, Object>> objList = this.bookingService.select_list();
 		String decimalFormat = "#,###";
@@ -120,6 +120,7 @@ public class BookingController {
 					Map<String, Object> m = objList.get(j); 
 					int rNum = Integer.parseInt(m.get("num").toString());
 					String rName = m.get("rName").toString();
+					mav.addObject("rName", rName);
 					int rLimit =Integer.parseInt(m.get("rLimit").toString());
 					int rPrice =Integer.parseInt(m.get("rPrice").toString());
 					int rPictures =Integer.parseInt(m.get("rPictures").toString());
@@ -133,7 +134,7 @@ public class BookingController {
 					dateFormat = "yyyy-MM-dd";
 					sdf = new SimpleDateFormat(dateFormat);
 					String bDate = sdf.format(compareCal.getTime());
-					
+					mav.addObject("bDate", bDate);
 					String chkBooking = "";
 					map.put("rNum", rNum);
 					map.put("bDate", bDate);
@@ -154,7 +155,7 @@ public class BookingController {
 					// 출력부분
 					taglist.add("<p class='dFlex' style='justify-content: space-between'>");
 					taglist.add("<a class='" + chkBooking + "'>" + rName + "</a>");
-					taglist.add("<span>" + df.format(rPrice) + "</span></p>");
+					taglist.add("<span class='>" + df.format(rPrice) + "</span></p>");
 				}
 			}
 			taglist.add("</td>");
@@ -176,9 +177,6 @@ public class BookingController {
 		/* dateFormat = "yyyy-MM-dd"; */
 		sdf = new SimpleDateFormat(dateFormat);
 		String bDate = sdf.format(cal.getTime());
-
-
-		ModelAndView mav = new ModelAndView();
 		
 		CalendarVO calendarVO = new CalendarVO();
 
@@ -186,13 +184,35 @@ public class BookingController {
 		mav.addObject("nowPageMonth", month+1);
 		mav.addObject("today", sdf.format(nowCal.getTime()));
 		mav.addObject("taglist", taglist);		
-		mav.addObject("bDate", bDate);
-
-		
-
-				
 		mav.setViewName("/booking/test");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/booking", method = RequestMethod.GET)
+	public ModelAndView booking(@RequestParam Map<String, Object> map) {
+		System.out.println(map);
+		Map<String, Object> getRoomInfo = this.bookingService.select_getRoomInfo(map);
+		System.out.println("m : "+getRoomInfo);
+		
+		String rLimit = getRoomInfo.get("rLimit").toString();
+		String rPrice = getRoomInfo.get("rPrice").toString();
+		String rName = getRoomInfo.get("rName").toString();
+		int rNum = Integer.parseInt(getRoomInfo.get("num").toString());
+		
+		String bDate = map.get("bDate").toString();
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("rLimit", rLimit);
+		mav.addObject("rPrice", rPrice);
+		mav.addObject("rName", rName);
+		mav.addObject("rNum", rNum);
+		
+		mav.addObject("bDate", bDate);
+		
+		mav.setViewName("/booking/booking");
+		return mav;
+	}
+
 
 }

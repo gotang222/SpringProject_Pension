@@ -23,6 +23,12 @@ public class BookingServiceImp implements BookingService {
 	public Map<String, Object> select_chkBooking(Map<String, Object> map) {
 		return this.bookingDAO.select_chkBooking(map);
 	}
+	
+	//객실이름으로 객실 정보 불러오기
+	@Override
+	public Map<String, Object> select_getRoomInfo(Map<String, Object> map) {
+		return this.bookingDAO.select_getRoomInfo(map);
+	}
 
 	
 }

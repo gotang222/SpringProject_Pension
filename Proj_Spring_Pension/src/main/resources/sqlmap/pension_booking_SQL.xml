@@ -17,5 +17,13 @@
 		]]>
 	</select>
 	<!-- 해당 날짜 예약 여부 확인 끝 -->
+	
+	<!-- 객실이름으로 객실 정보 불러오기 시작 -->
+	<select id="select_getRoomInfo" resultType="hashMap">
+		<![CDATA[
+			select num, rName, rLimit, rPrice, rPictures from roomInfo where rName = #{rName}
+		]]>
+	</select>
+	<!-- 객실이름으로 객실 정보 불러오기 끝 -->
 
 </mapper>
