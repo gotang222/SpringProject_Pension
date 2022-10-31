@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="/resources/style/member/style_join.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/resources/script/member/script_join.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 	<jsp:include page="/resources/include/header.jsp" flush="true" />
@@ -29,7 +30,7 @@
 
 							<button type="button" id="idChkBtn">ID중복확인</button>
 							<span id="idChkTxt"></span>
-							<input type="text" id="idCheck" value="">
+							<input type="hidden" id="idCheck" value="">
 							<p id="idGuideTxt" class="guideTxt">
 								3~20자의 영문 대소문자, 숫자만 사용 가능합니다.
 							</p>

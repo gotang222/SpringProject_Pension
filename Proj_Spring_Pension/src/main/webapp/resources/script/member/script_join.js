@@ -61,7 +61,16 @@ $(function(){
 	
 	
 	
-	
+	// 다음 주소찾기 api
+	$("button#findZipBtn").click(function(){
+		new daum.Postcode({
+			oncomplete: function(data) {
+				$("input#uZipcode").val(data.zonecode); // 우편번호 넣기
+				$("input#uAddr").val(data.address); // 주소 넣기
+				$("input#uAddr").focus();
+			}
+		}).open();
+	});
 	
 	
 	
@@ -173,7 +182,7 @@ function joinSubmit() {
 	let uEmail1 = $("#uEmail1").val().trim();
 	let uEmail2 = $("#uEmail2").val().trim();
 	let idCheck = $("#idCheck").val().trim();
-	alert("idCheck : "+idCheck);
+	
 	if (uid == "") {
 		alert("아이디를 입력해주세요.");
 		$("#uid").focus();
