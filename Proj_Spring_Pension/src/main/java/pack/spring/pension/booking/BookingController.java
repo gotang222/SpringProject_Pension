@@ -134,7 +134,7 @@ public class BookingController {
 					dateFormat = "yyyy-MM-dd";
 					sdf = new SimpleDateFormat(dateFormat);
 					String bDate = sdf.format(compareCal.getTime());
-					mav.addObject("bDate", bDate);
+					
 					String chkBooking = "";
 					map.put("rNum", rNum);
 					map.put("bDate", bDate);
@@ -155,7 +155,7 @@ public class BookingController {
 					// 출력부분
 					taglist.add("<p class='dFlex' style='justify-content: space-between'>");
 					taglist.add("<a class='" + chkBooking + "'>" + rName + "</a>");
-					taglist.add("<span class='>" + df.format(rPrice) + "</span></p>");
+					taglist.add("<span>" + df.format(rPrice) + "</span></p>");
 				}
 			}
 			taglist.add("</td>");
@@ -173,44 +173,70 @@ public class BookingController {
 				}
 			}
 		}
+		mav.addObject("today", sdf.format(nowCal.getTime()));
 		
-		/* dateFormat = "yyyy-MM-dd"; */
+		dateFormat = "yyyy-MM-";
 		sdf = new SimpleDateFormat(dateFormat);
 		String bDate = sdf.format(cal.getTime());
+		mav.addObject("bDate", bDate);
 		
 		CalendarVO calendarVO = new CalendarVO();
 
 		mav.addObject("year", year);
 		mav.addObject("nowPageMonth", month+1);
-		mav.addObject("today", sdf.format(nowCal.getTime()));
 		mav.addObject("taglist", taglist);		
-		mav.setViewName("/booking/test");
+		mav.setViewName("/booking/calendar");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/booking", method = RequestMethod.GET)
 	public ModelAndView booking(@RequestParam Map<String, Object> map) {
+		System.out.println(" 경로 부킹 겟");
 		System.out.println(map);
 		Map<String, Object> getRoomInfo = this.bookingService.select_getRoomInfo(map);
 		System.out.println("m : "+getRoomInfo);
 		
 		String rLimit = getRoomInfo.get("rLimit").toString();
-		String rPrice = getRoomInfo.get("rPrice").toString();
 		String rName = getRoomInfo.get("rName").toString();
 		int rNum = Integer.parseInt(getRoomInfo.get("num").toString());
 		
+		String decimalFormat = "#,### 원";
+		DecimalFormat df = new DecimalFormat(decimalFormat);
+		int bMoney = Integer.parseInt(map.get("bMoney").toString());
+		String payPrice = df.format(bMoney);
 		String bDate = map.get("bDate").toString();
-		
+
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("rLimit", rLimit);
-		mav.addObject("rPrice", rPrice);
+		mav.addObject("payPrice", payPrice);
+		mav.addObject("bMoney", bMoney);
 		mav.addObject("rName", rName);
 		mav.addObject("rNum", rNum);
+
 		
-		mav.addObject("bDate", bDate);
+		String bbDate = bDate.trim()+map.get("bDay").toString().trim();
+		mav.addObject("bDate", bbDate);
 		
 		mav.setViewName("/booking/booking");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/booking", method = RequestMethod.POST)
+	public ModelAndView booking_insert(@RequestParam Map<String, Object> map) {
+
+		System.out.println("부킹인설트포스트들어옴");
+		ModelAndView mav = new ModelAndView();
+		System.out.println(map);
+		int insertBooking = this.bookingService.insert(map);
+		System.out.println("insertBooking : "+insertBooking);
+		if(insertBooking==1) {
+			mav.setViewName("redirect:/calendar");			
+		}
+
+
+
+		
 		return mav;
 	}
 

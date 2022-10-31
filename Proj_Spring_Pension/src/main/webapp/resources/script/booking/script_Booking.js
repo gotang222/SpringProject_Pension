@@ -24,9 +24,13 @@ $(function(){
 			let yearMonth = $("#bDate").val();
 			let date = $(this).parent("p").siblings("h4").text();
 			let rName = $(this).text();
-			
+			let bMoney = $(this).next("span").text();
+			bMoney = bMoney.replace(",","");
+		
 			$("#rName").val(rName);
-			$("#bDate").val(yearMonth +""+ date);
+			$("#bDate").val(yearMonth);
+			$("#bDay").val(date);  
+			$("#bMoney").val(bMoney);
 			
 			$("form#bookingFrm").submit();
 		} else {
@@ -44,6 +48,7 @@ $(function(){
 	$("#bookSubmitBtn").click(function(){
 		let chk = confirm("예약하시겠습니까?");
 		if (chk) {
+
 			$("form#bookFrm").submit();
 		} else {
 			alert("예약을 취소했습니다.");

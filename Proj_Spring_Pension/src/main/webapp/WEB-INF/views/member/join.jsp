@@ -148,6 +148,7 @@
 		<!-- form#joinFrm -->
 	</div>
 	<!-- div#wrap -->
+
 	<jsp:include page="/resources/include/footer.jsp" flush="true" />
 </body>
 </html>

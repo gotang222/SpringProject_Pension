@@ -29,6 +29,16 @@ public class BookingServiceImp implements BookingService {
 	public Map<String, Object> select_getRoomInfo(Map<String, Object> map) {
 		return this.bookingDAO.select_getRoomInfo(map);
 	}
-
+	
+	//객실 예약
+	@Override
+	public int insert(Map<String, Object> map) {
+		System.out.println("123");
+		int affectRowCnt = bookingDAO.insert_roomBooking(map);
+		if(affectRowCnt == 1) {
+			return bookingDAO.insert_roomBooking(map);
+		}
+		return 0;
+	}
 	
 }

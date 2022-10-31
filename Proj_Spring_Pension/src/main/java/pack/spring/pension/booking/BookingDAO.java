@@ -32,4 +32,11 @@ public class BookingDAO {
 		return this.sqlSessionTemplate.selectOne("booking.select_getRoomInfo", map);
 	}
 	//객실이름으로 객실 정보 불러오기 끝
+	
+	//객실 예약 시작
+	public int insert_roomBooking(Map<String, Object> map) {
+		System.out.println("456");
+		return this.sqlSessionTemplate.insert("booking.insert_roomBooking", map);
+	}
+	//객실 예약 끝
 }

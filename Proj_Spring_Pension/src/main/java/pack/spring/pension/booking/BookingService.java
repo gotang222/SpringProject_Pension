@@ -14,4 +14,6 @@ public interface BookingService {
 	//객실이름으로 객실 정보 불러오기
 	Map<String, Object> select_getRoomInfo(Map<String, Object> map);
 
+	//객실 예약
+	int insert(Map<String, Object> map);
 }
